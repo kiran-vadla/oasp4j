@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 import org.hibernate.envers.AuditReader;
 import org.hibernate.envers.AuditReaderFactory;
 import org.junit.Test;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import io.oasp.gastronomy.restaurant.SpringBootApp;
@@ -26,7 +26,7 @@ import io.oasp.module.test.common.base.ComponentTest;
  *
  */
 
-@SpringApplicationConfiguration(classes = { SpringBootApp.class })
+@SpringBootTest(classes = { SpringBootApp.class })
 @WebAppConfiguration
 public class DrinkDaoTest extends ComponentTest {
 
@@ -53,7 +53,7 @@ public class DrinkDaoTest extends ComponentTest {
    * with the {@link Transactional} annotation, are executed in separate transaction, thus one test case can execute
    * multiple transactions.
    *
-     */
+   */
   @Named
   static class DrinkDaoTestBean {
 

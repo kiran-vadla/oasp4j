@@ -18,7 +18,7 @@ import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.test.AssertFile;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -29,8 +29,8 @@ import io.oasp.gastronomy.restaurant.general.common.AbstractSpringBatchIntegrati
  * End-To-End test job "import offer management from csv"
  *
  */
-@SpringApplicationConfiguration(classes = { SpringBootBatchApp.class }, locations = {
-"classpath:/config/app/batch/beans-billexport.xml" })
+@SpringBootTest(classes = { SpringBootBatchApp.class }, properties = {
+"locations=classpath:/config/app/batch/beans-billexport.xml" })
 @WebAppConfiguration
 public class BillExportJobTest extends AbstractSpringBatchIntegrationTest {
   private static final Logger LOG = LoggerFactory.getLogger(AbstractSpringBatchIntegrationTest.class);

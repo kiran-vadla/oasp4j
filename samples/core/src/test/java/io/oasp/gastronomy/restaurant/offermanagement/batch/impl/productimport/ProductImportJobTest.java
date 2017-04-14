@@ -1,13 +1,5 @@
 package io.oasp.gastronomy.restaurant.offermanagement.batch.impl.productimport;
 
-import io.oasp.gastronomy.restaurant.SpringBootBatchApp;
-import io.oasp.gastronomy.restaurant.general.common.AbstractSpringBatchIntegrationTest;
-import io.oasp.gastronomy.restaurant.offermanagement.logic.api.Offermanagement;
-import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.DrinkEto;
-import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.MealEto;
-import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.OfferEto;
-import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.ProductEto;
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -18,14 +10,23 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.web.WebAppConfiguration;
+
+import io.oasp.gastronomy.restaurant.SpringBootBatchApp;
+import io.oasp.gastronomy.restaurant.general.common.AbstractSpringBatchIntegrationTest;
+import io.oasp.gastronomy.restaurant.offermanagement.logic.api.Offermanagement;
+import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.DrinkEto;
+import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.MealEto;
+import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.OfferEto;
+import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.ProductEto;
 
 /**
  * End-To-End test job "import offer management from csv"
  *
  */
-@SpringApplicationConfiguration(classes= { SpringBootBatchApp.class }, locations = { "classpath:config/app/batch/beans-productimport.xml" })
+@SpringBootTest(classes = { SpringBootBatchApp.class }, properties = {
+"locations=classpath:config/app/batch/beans-productimport.xml" })
 @WebAppConfiguration
 public class ProductImportJobTest extends AbstractSpringBatchIntegrationTest {
 
